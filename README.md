@@ -52,7 +52,6 @@ services:
     container_name: "django_cont"
     build:
       context: .
-    image: django_app
     ports:
       - "8000:8000"
     env_file:
@@ -69,6 +68,8 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+
+
 
   mysql:
     container_name: "db_cont"
@@ -89,12 +90,12 @@ services:
       retries: 5
       start_period: 60s
 
+
 volumes:
   mysql-django:
 
 networks:
   django-network:
-
 ```
 
 ### nginx docker file
@@ -106,14 +107,16 @@ COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 ### nginx/default.conf file
 ```properties
+# conatiner_name
 upstream django{
     server django_app:8000;
 }
 
 server {
     listen 80;
-
+	#(xyz.com)
     server_name localhost;
+    #server_name xyz.com;
 
     location / {
         proxy_pass http://django_cont:8000;
