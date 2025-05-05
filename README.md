@@ -1,5 +1,8 @@
 # django-notes-app-docker-testing
 
+![image](https://github.com/user-attachments/assets/b20a3f0a-59ff-4a3f-be90-32798dc61090)
+
+
 ### Dockerfile
 
 ```properties
