@@ -77,8 +77,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD=root
-      MYSQL_DATABASE=test_db
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test_db
     volumes:
       - ./mysql-django:/var/lib/mysql
     networks:
